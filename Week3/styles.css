@@ -1,38 +1,77 @@
+:root {
+  --brand: #1d4e89;
+  --brand-soft: #e0ecf8;
+  --surface: #ffffff;
+  --page: #f4f7fa;
+  --text: #1f2933;
+  --border: #d9e2ec;
+  --radius: 8px;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e6ecf0;
+  background: var(--page);
+  color: var(--text);
 }
 
 header {
-  background-color: #1a237e;
+  background: var(--brand);
   color: white;
-  padding: 15px 30px;
+  padding: 16px 24px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  font-size: 20px;
-  font-weight: bold;
+  justify-content: space-between;
+  gap: 8px 24px;
 }
 
-header img {
-  height: 40px;
-  margin-right: 15px;
-  background-color: white;
-  border-radius: 50%;
+main {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 0 16px;
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
 }
 
-/* Update navigation to align left */
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.notices {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr; /* phone: one column */
+  margin-bottom: 0;
+}
+
+.tag {
+  background: var(--brand-soft);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
+}
+
 nav {
-  background-color: #ffffff;
-  padding: 10px 30px;
-  display: flex;
-  gap: 20px;
-  border-bottom: 1px solid #ccc;
-  border-top: 2px solid #d32f2f; /* Red separating line */
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
@@ -42,87 +81,59 @@ nav {
 }
 
 nav a {
+  color: white;
   text-decoration: none;
-  color: #1a237e;
-  font-size: 14px;
-  font-weight: bold;
 }
 
 nav a:hover {
-  color: #ffd700;
+  text-decoration: underline;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-input[type="text"],
-input[type="password"] {
+table {
+  border-collapse: collapse;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #cccccc;
+  background: var(--surface);
+}
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background: var(--brand-soft);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
   border-radius: 4px;
-  background-color: #eef2f5;
-  margin-bottom: 20px; /* Add spacing below inputs */
+  font: inherit;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid var(--brand);
 }
 
 button {
-  background-color: #1a237e;
+  background: var(--brand);
   color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
+  border: 0;
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  font: inherit;
   cursor: pointer;
-  width: 100%;
 }
-
 button:hover {
-  background-color: #11175c;
+  background: #163b69;
 }
 
-footer {
-  background-color: #333333;
-  color: #ffffff;
-  text-align: center;
-  padding: 15px 0;
-  /* Pushes the footer to the bottom of the content flow */
-  margin-top: auto;
-}
-
-.form-section {
-  flex: 1;
-  padding: 40px;
-  background-color: #ffffff; /* Add white background here */
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow here */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login-card {
-  display: flex;
-  gap: 20px; /* This creates the space between the form and the image */
-  max-width: 900px;
-  width: 100%;
-  background-color: transparent; /* Removes the shared background */
-  box-shadow: none; /* Removes the shared shadow */
-}
-
-.image-section {
-  flex: 1;
-  display: flex;
-}
-
-.image-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px; /* Rounds the corners of the standalone image */
+p {
+  color: red;
 }
 
 img {
@@ -132,4 +143,46 @@ img {
 table {
   display: block;
   overflow-x: auto;
+} /* a wide table scrolls inside itself */
+
+@media (min-width: 600px) {
+  .notices {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .notices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  header {
+    padding: 24px 32px;
+  }
+}
+
+body {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  body {
+    grid-template-columns: 1fr 300px;
+    grid-template-areas:
+      "header header"
+      "main   aside"
+      "footer footer";
+  }
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: aside;
+  }
+  footer {
+    grid-area: footer;
+  }
 }

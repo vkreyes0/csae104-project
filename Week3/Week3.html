@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Don Mariano Marcos Memorial state University</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Notices</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -11,41 +11,103 @@
     <header>
       <img src="seal.png" alt="SFNHS Logo" />
       <h1>Fabian National High School</h1>
+      <nav>
+        <a href="home.html"> Home </a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="Contact.html">Contact Us </a>
+        <a href="Register.html">Register </a>
+      </nav>
     </header>
 
-    <nav>
-      <a href="home.html"> Home </a>
-      <a href="AboutUs.html">About Us</a>
-      <a href="Contact.html">Contact Us </a>\
-      <a href="Register.html">Register </a>
-    </nav>
-
-    <main class="main-container">
-      <div class="login-card">
-        <div class="form-section">
-          <h3>Login Form</h3>
-          <form>
-            <div class="input-group">
-              <label for="username">Username</label>
-              <input type="text" id="username" name="username" required />
-            </div>
-            <div class="input-group">
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" required />
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-          </form>
-        </div>
-
-        <!-- Right Side: The Image -->
-        <div class="image-section">
-          <img src="emblem.png" alt="White Sands Logo" />
-        </div>
+    <main>
+      <div class="notices">
+        <article class="notice">
+          <h2>Library hours extended</h2>
+          <p>The library stays open until 9 PM during midterm week.</p>
+        </article>
       </div>
+
+      <div>
+        <article class="notice">
+          <h2>Library hours extended</h2>
+          <p>The library stays open until 9 PM during midterm week.</p>
+        </article>
+      </div>
+
+      <div>
+        <article class="notice">
+          <h2>Library hours extended</h2>
+          <p>The library stays open until 9 PM during midterm week.</p>
+        </article>
+      </div>
+
+      <section id="deadlines">
+        <h2>Upcoming deadlines</h2>
+        <table>
+          <caption>
+            Deadlines this month
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Activity</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Enrolment ends</td>
+              <td>20 January</td>
+            </tr>
+            <tr>
+              <td>Programming contest registration</td>
+              <td>25 January</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="submit">
+        <h2>Post a notice</h2>
+        <form action="#" method="post">
+          <p>
+            <label for="title">Title</label><br />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              maxlength="100"
+            />
+          </p>
+          <p>
+            <label for="category">Category</label><br />
+            <select id="category" name="category">
+              <option value="academic">Academic</option>
+              <option value="event">Event</option>
+              <option value="general">General</option>
+            </select>
+          </p>
+          <p>
+            <label for="date">Date</label><br />
+            <input type="date" id="date" name="date" />
+          </p>
+          <p>
+            <label for="message">Message</label><br />
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </p>
+          <p>
+            <label for="email">Your email</label><br />
+            <input type="email" id="email" name="email" required />
+          </p>
+          <button type="submit">Post notice</button>
+        </form>
+      </section>
     </main>
 
+    <img src="emblem.png" alt="White Sands Logo" />
+
     <footer>
-      <p>All Rights Reserved 2027</p>
+      <p>SFNHS All Rights Reserved 2027</p>
     </footer>
   </body>
 </html>
