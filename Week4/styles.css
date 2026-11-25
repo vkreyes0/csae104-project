@@ -1,0 +1,284 @@
+:root {
+  --brand: #1d4e89;
+  --brand-soft: #e0ecf8;
+  --surface: #ffffff;
+  --page: #f4f7fa;
+  --text: #1f2933;
+  --border: #d9e2ec;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+}
+
+header {
+  background: blue;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px 24px;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+main {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 0 16px;
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.notices {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr; /* phone: one column */
+  margin-bottom: 0;
+}
+
+.tag {
+  background: var(--brand-soft);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
+}
+
+header nav {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--surface);
+}
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background: var(--brand-soft);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid var(--brand);
+}
+
+button {
+  background: var(--brand);
+  color: white;
+  border: 0;
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover {
+  background: #163b69;
+}
+
+p {
+  color: red;
+}
+
+img {
+  max-width: 200px;
+  height: auto;
+}
+table {
+  display: block;
+  overflow-x: auto;
+} /* a wide table scrolls inside itself */
+
+@media (min-width: 600px) {
+  .notices {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .notices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  header {
+    padding: 24px 32px;
+  }
+}
+
+body {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  body {
+    grid-template-columns: 1fr 300px;
+    grid-template-areas:
+      "header header"
+      "main   aside"
+      "footer footer";
+  }
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: aside;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+/* ---------- Dark mode ---------- */
+:root {
+  --field: #ffffff; /* input background */
+}
+
+[data-theme="dark"] {
+  --page: #1c1c22;
+  --surface: #2e2e3a;
+  --text: #ffffff;
+  --border: #4a4a5a;
+  --brand-soft: #2a3b55;
+  --field: #1c1c22;
+}
+
+input,
+select,
+textarea {
+  background: var(--field);
+  color: var(--text);
+}
+
+.theme {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20; /* above the pop-ups */
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Nav: account links ---------- */
+#navUser {
+  font-weight: bold;
+}
+
+/* ---------- Register / login pop-ups ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.55);
+}
+.modal.hidden {
+  display: none;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  width: min(100%, 340px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.card h2 {
+  margin: 0;
+}
+.card a {
+  color: var(--text);
+}
+.card .close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 10px;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.card .close:hover {
+  background: var(--brand-soft);
+}
+.message {
+  margin: 0;
+  color: #c92a2a;
+}
+.message:empty {
+  display: none;
+}
+
+/* ---------- Notices posted by logged-in users ---------- */
+.notice .meta {
+  font-size: 0.85rem;
+}

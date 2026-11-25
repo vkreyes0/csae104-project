@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Notices</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <button id="themeToggle" class="theme" type="button">Dark</button>
+
+    <header>
+      <img src="emblem.png" alt="SFNHS Logo" />
+      <h1>Ang Puting Buhangin</h1>
+      <nav>
+        <a href="home.html"> Home </a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="Contact.html">Contact Us </a>
+        <a href="Register.html" id="navRegister" data-open="register"
+          >Register
+        </a>
+        <a href="#" id="navLogin" data-open="login">Log in</a>
+        <span id="navUser" hidden></span>
+        <a href="#" id="navLogout" hidden>Log out</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="notices">
+        <article class="notice">
+          <h2>Library hours extended</h2>
+          <p>The library stays open until 9 PM during midterm week.</p>
+        </article>
+      </div>
+
+      <div>
+        <article class="notice">
+          <h2>Library hours extended</h2>
+          <p>The library stays open until 9 PM during midterm week.</p>
+        </article>
+      </div>
+
+      <div>
+        <article class="notice">
+          <h2>Library hours extended</h2>
+          <p>The library stays open until 9 PM during midterm week.</p>
+        </article>
+      </div>
+
+      <section id="deadlines">
+        <h2>Upcoming deadlines</h2>
+        <table>
+          <caption>
+            Deadlines this month
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Activity</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Enrolment ends</td>
+              <td>20 January</td>
+            </tr>
+            <tr>
+              <td>Programming contest registration</td>
+              <td>25 January</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="submit">
+        <h2>Post a notice</h2>
+        <form id="postForm" action="#" method="post">
+          <p>
+            <label for="title">Title</label><br />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              maxlength="100"
+            />
+          </p>
+          <p>
+            <label for="category">Category</label><br />
+            <select id="category" name="category">
+              <option value="academic">Academic</option>
+              <option value="event">Event</option>
+              <option value="general">General</option>
+            </select>
+          </p>
+          <p>
+            <label for="date">Date</label><br />
+            <input type="date" id="date" name="date" />
+          </p>
+          <p>
+            <label for="message">Message</label><br />
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </p>
+          <p>
+            <label for="email">Your email</label><br />
+            <input type="email" id="email" name="email" required />
+          </p>
+          <button type="submit">Post notice</button>
+        </form>
+      </section>
+    </main>
+
+    <img src="emblem.png" alt="White Sands Logo" />
+
+    <footer>
+      <p>SFNHS All Rights Reserved 2027</p>
+    </footer>
+    <!-- Register and login pop-ups: only open when the visitor asks for them -->
+    <section
+      id="register"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="regTitle"
+    >
+      <form id="regForm" class="card">
+        <button type="button" class="close" data-close aria-label="Close">
+          &times;
+        </button>
+        <h2 id="regTitle">Create account</h2>
+        <input name="name" placeholder="Name" aria-label="Name" required />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          aria-label="Email"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password (8+ characters)"
+          aria-label="Password"
+          required
+        />
+        <input
+          name="confirm"
+          type="password"
+          placeholder="Confirm password"
+          aria-label="Confirm password"
+          required
+        />
+        <button>Register</button>
+        <p id="regMsg" class="message" role="alert"></p>
+        <a href="#" data-open="login">I have an account</a>
+      </form>
+    </section>
+
+    <section
+      id="login"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="logTitle"
+    >
+      <form id="logForm" class="card">
+        <button type="button" class="close" data-close aria-label="Close">
+          &times;
+        </button>
+        <h2 id="logTitle">Log in</h2>
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          aria-label="Email"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          aria-label="Password"
+          required
+        />
+        <button>Log in</button>
+        <p id="logMsg" class="message" role="alert"></p>
+        <a href="#" data-open="register">Create an account</a>
+      </form>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
