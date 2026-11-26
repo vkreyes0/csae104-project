@@ -163,3 +163,10 @@ toggle.onclick = () =>
 
 // ---------- Start ----------
 updateNav();
+
+// ---------- Splash screen ----------
+const splash = document.querySelector("#splash");
+
+setTimeout(() => {
+  splash.classList.add("hidden");
+}, 2000);
